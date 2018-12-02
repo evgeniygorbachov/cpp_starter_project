@@ -1,14 +1,9 @@
-dist: trusty
-sudo: false
-language: cpp
-
-addons:
-    apt:
-        sources:
-            - ubuntu-toolchain-r-test
-        packages:
-            - g++-5
-
-script:
-    - CXX=/usr/bin/g++-5 CC=/usr/bin/gcc-5 cmake .
-    - cmake --build . -- -j2
+images:
+  - Visual Studio 2017
+clone_folder: c:\project\source
+build_script:
+  - cmd: >-
+    mkdir build
+    cd build
+    cmake c:\project\source -G "Visual Studio 15"
+    cmake --build . --config "Debug"
